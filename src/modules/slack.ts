@@ -26,7 +26,7 @@ export const buildSlackPostMessage = (
     `been mentioned at <${commentLink}|${issueTitle}> by ${senderName}`,
   ].join(" ");
 
-  return `${message}\n${body}`;
+  return `${message}`;
 };
 
 const openIssueLink =
