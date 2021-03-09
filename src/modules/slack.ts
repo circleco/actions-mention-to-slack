@@ -4,22 +4,9 @@ export const buildSlackPostMessage = (
   slackIdsForMention: string[],
   issueTitle: string,
   commentLink: string,
-  githubBody: string,
   senderName: string
 ): string => {
   const mentionBlock = slackIdsForMention.map((id) => `<@${id}>`).join(" ");
-  const body = githubBody
-    .split("\n")
-    .map((line, i) => {
-      // fix slack layout collapse problem when first line starts with blockquotes.
-      if (i === 0 && line.startsWith(">")) {
-        return `>\n> ${line}`;
-      }
-
-      return `> ${line}`;
-    })
-    .join("\n");
-
   const message = [
     mentionBlock,
     `${slackIdsForMention.length === 1 ? "has" : "have"}`,

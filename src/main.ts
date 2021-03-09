@@ -118,7 +118,6 @@ export const execNormalMention = async (
     slackIds,
     info.title,
     info.url,
-    info.body,
     info.senderName
   );
 
